@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://be2islow6whm5"]
+
+[ext_resource type="Script" path="res://Scripts/snake.gd" id="1_200a5"]
+
+[node name="snake" type="Node2D"]
+script = ExtResource("1_200a5")
+
+[node name="snakeParts" type="Node" parent="."]

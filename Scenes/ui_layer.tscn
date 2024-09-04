@@ -1,0 +1,82 @@
+[gd_scene load_steps=6 format=3 uid="uid://u7dlerkj8qbc"]
+
+[ext_resource type="Script" path="res://Scripts/ui_layer.gd" id="1_e3d01"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y0647"]
+bg_color = Color(0.31813, 0.532081, 0.211006, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rq762"]
+bg_color = Color(0.219905, 0.377767, 0.140919, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1tlc7"]
+bg_color = Color(0.882353, 0.0470588, 0.0313726, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i7wlj"]
+bg_color = Color(0.681924, 0.0226574, 0.0153676, 1)
+
+[node name="UILayer" type="CanvasLayer"]
+script = ExtResource("1_e3d01")
+
+[node name="BoxContainer" type="HBoxContainer" parent="."]
+visible = false
+custom_minimum_size = Vector2(400, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -176.0
+offset_top = -20.0
+offset_right = 224.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 64
+
+[node name="Restart" type="Button" parent="BoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/hover = SubResource("StyleBoxFlat_y0647")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rq762")
+text = "RESTART"
+
+[node name="Quit" type="Button" parent="BoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_styles/hover = SubResource("StyleBoxFlat_1tlc7")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_i7wlj")
+text = "QUIT?"
+
+[node name="PointsLabel" type="Label" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -96.0
+offset_top = 32.0
+offset_right = -29.0
+offset_bottom = 55.0
+grow_horizontal = 0
+text = "Points: 0"
+
+[node name="GameOverLabel" type="Label" parent="."]
+visible = false
+anchors_preset = -1
+anchor_left = 0.251
+anchor_top = 0.173
+anchor_right = 0.748
+anchor_bottom = 0.383
+offset_left = 102.848
+offset_top = -0.104004
+offset_right = -102.696
+offset_bottom = -48.184
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.522958, 0.155959, 0.0590837, 1)
+theme_override_font_sizes/font_size = 100
+text = "GAME OVER"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="BoxContainer/Restart" to="." method="_on_restart_pressed"]
